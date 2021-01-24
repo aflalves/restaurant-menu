@@ -1,9 +1,11 @@
 import { Router } from 'express'
-import { addItem, deleteItem, findItem, getItemMW, updateItem } from './item.controller'
+import { isAuthorized } from '../auth-middleware'
+import { getItem } from './get-item.middleware'
+import { addItem, deleteItem, getItems, updateItem } from './item.controller'
 
 export const itemRouter = Router()
 
-itemRouter.get('/', findItem)
-itemRouter.post('/', addItem)
-itemRouter.delete('/:id', getItemMW, deleteItem)
-itemRouter.put('/:id', getItemMW, updateItem)
+itemRouter.get('/', getItems)
+itemRouter.post('/', isAuthorized, addItem)
+itemRouter.delete('/:id', isAuthorized, getItem, deleteItem)
+itemRouter.put('/:id', isAuthorized, getItem, updateItem)

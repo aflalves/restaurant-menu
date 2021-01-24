@@ -1,15 +1,17 @@
 import { Router } from 'express'
+import { isAuthorized } from '../auth-middleware'
 import {
   addCategory,
   deleteCategory,
-  findCategory,
-  getCategoryMW,
+  getCategories,
   updateCategory,
 } from './category.controller'
+import { getCategoryMW } from './get-category-middleware'
 
 export const categoryRouter = Router()
 
-categoryRouter.get('/', findCategory)
-categoryRouter.post('/', addCategory)
-categoryRouter.delete('/:id', getCategoryMW, deleteCategory)
-categoryRouter.put('/:id', getCategoryMW, updateCategory)
+categoryRouter.get('/', getCategories)
+
+categoryRouter.post('/', isAuthorized, addCategory)
+categoryRouter.delete('/:id', isAuthorized, getCategoryMW, deleteCategory)
+categoryRouter.put('/:id', isAuthorized, getCategoryMW, updateCategory)

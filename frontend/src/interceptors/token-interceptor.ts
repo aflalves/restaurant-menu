@@ -11,7 +11,7 @@ export class TokenInterceptor implements HttpInterceptor {
     if (request.method !== 'GET') {
       request = request.clone({
         setHeaders: {
-          Authorization: `mocked-auth-token`,
+          customAuth: 'mocked-auth-token',
         },
       })
     }
