@@ -1,0 +1,38 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "interface-name": false,
+    "no-console": false,
+    "prettier": false,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "align": {
+      "options": [
+        "parameters",
+        "statements"
+      ]
+    },
+    "object-literal-sort-keys": false,
+    "import-spacing": true,
+    "indent": {
+      "options": [
+        "spaces"
+      ]
+    },
+    "semicolon": {
+      "options": [
+        "never"
+      ]
+    }
+  },
+  "rulesDirectory": [
+    "tslint-plugin-prettier"
+  ]
+}
