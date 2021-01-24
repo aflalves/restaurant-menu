@@ -18,8 +18,8 @@ The frontend uses Angular with NgRx for state management.
 
 The app starts with the normal user view by default.
 
-- To enable to the admin view, a combination of keys must be pressed in the order, so press:
-"arrow up", "arrow down", " arrow left", "arrow right", "b" and "a". (see `EnableAdminService`.)
+- To enable to the admin view, a combination of keys must be pressed in the order, which is:
+"arrow up", "arrow down", "arrow left", "arrow right", "b" and "a". (see `EnableAdminService`.)
 
 - There is an interceptor in place to add the header for the admin requests (see `TokenInterceptor`)
 
