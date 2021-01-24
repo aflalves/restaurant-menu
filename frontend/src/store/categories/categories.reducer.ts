@@ -44,7 +44,10 @@ const reducer = createReducer(
     fetching: true,
   })),
   on(CategoryActions.updateCategorySuccess, (state, { category }) =>
-    categoriesAdapter.updateOne({ id: category._id, changes: { ...category } }, { ...state, fetching: false })
+    categoriesAdapter.updateOne(
+      { id: category._id, changes: { ...category } },
+      { ...state, fetching: false }
+    )
   ),
 
   // delete
@@ -54,7 +57,13 @@ const reducer = createReducer(
   })),
   on(CategoryActions.deleteCategorySuccess, (state, { id }) =>
     categoriesAdapter.removeOne(id, { ...state, fetching: false })
-  )
+  ),
+
+  on(CategoryActions.categoryRequestError, (state, { error }) => ({
+    ...state,
+    fetching: false,
+    error,
+  }))
 )
 
 export function categoriesReducer(state: CategoryState | undefined, action: Action): CategoryState {

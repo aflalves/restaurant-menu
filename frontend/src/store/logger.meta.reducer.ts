@@ -16,18 +16,18 @@ export function logger(reducer: ActionReducer<any>): ActionReducer<any> {
 
 function getActionColor(actionType: string): string {
   if (actionType.includes('@ngrx')) {
-    return 'color: #161716;'
-  }
-
-  if (actionType.includes(StateKey.USER)) {
-    return 'color: #169612;'
-  }
-
-  if (actionType.includes(StateKey.CATEGORIES)) {
     return 'color: #b527c2;'
   }
 
+  if (actionType.includes(StateKey.USER)) {
+    return 'color: #d6330b;'
+  }
+
+  if (actionType.includes(StateKey.CATEGORIES)) {
+    return 'color: #25c438;'
+  }
+
   if (actionType.includes(StateKey.ITEMS)) {
-    return 'color: #f07e13;'
+    return 'color: #3e6db5;'
   }
 }

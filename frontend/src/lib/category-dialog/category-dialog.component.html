@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>New Category</h2>
+<div class="form-container mat-typography" [formGroup]="form">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="form.invalid" mat-raised-button color="accent"
+    (click)="addOrUpdate()">{{ !!existingCategory ? 'Update' : 'Add' }}</button>
+</mat-dialog-actions>

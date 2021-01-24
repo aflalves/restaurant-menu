@@ -19,6 +19,10 @@ const reducer = createReducer(
   on(UserActions.setNormalUser, (state) => ({
     ...state,
     role: UserRoles.NORMAL,
+  })),
+  on(UserActions.toggle, (state) => ({
+    ...state,
+    role: state.role === UserRoles.NORMAL ? UserRoles.ADMIN : UserRoles.NORMAL,
   }))
 )
 

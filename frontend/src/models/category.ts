@@ -1,5 +1,10 @@
+import { Item } from './item'
+
 export interface Category {
   _id: string
   name: string
-  description?: string,
+}
+
+export interface CategoriesWithItems extends Category {
+  items: Item[]
 }

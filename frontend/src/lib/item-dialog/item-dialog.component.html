@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>New Item</h2>
+<div class="form-container mat-typography" [formGroup]="form">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Price</mat-label>
+    <input type="number" matInput formControlName="price">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="categoryId">
+      <mat-option *ngFor="let category of categories$ | async" [value]="category._id">
+        {{category.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <textarea matInput placeholder="Description (optional)" formControlName="description"></textarea>
+</div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="form.invalid" mat-raised-button color="accent"
+    (click)="addOrUpdate()">{{ !!existingItem ? 'Update' : 'Add' }}</button>
+</mat-dialog-actions>

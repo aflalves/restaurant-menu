@@ -1,0 +1,14 @@
+:host {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+
+    textarea {
+      padding: 0.5rem;
+      height: 150px;
+      width: 300px;
+    }
+  }
+}

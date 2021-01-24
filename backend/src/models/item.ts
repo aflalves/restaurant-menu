@@ -13,7 +13,7 @@ const itemSchema = new mongoose.Schema({
     required: true,
     type: Number,
   },
-  category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
+  categoryId: { type: Schema.Types.ObjectId, ref: 'Category' },
   image:{
     required: false,
     type: String,
